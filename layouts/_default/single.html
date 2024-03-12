@@ -8,6 +8,11 @@
 
     {{ .Content }}
     <div class="mt-4">
+      {{ if and (.Site.DisqusShortname) (.Param "comments") (not .Site.IsServer) }}
+      <section class="comments block">
+        {{ template "_internal/disqus.html" . }}
+      </section>
+      {{ end }}
       {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
     </div>
   </section>
