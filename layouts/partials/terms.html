@@ -1,0 +1,22 @@
+{{- $page := .page }}
+{{- $taxonomy := .taxonomy }}
+
+{{- with $page.GetTerms $taxonomy }}
+  {{- $label := (index . 0).Parent.LinkTitle }}
+  <article class="card my-4">
+    <header class="card-header">
+      <h5>{{ $label }}:</h5>
+    </header>
+    <section class="card-body">
+      <div class="row">
+        {{- range . }}
+          <div class="col-md-4">
+            <div class="card mb-4">
+              <a href="{{ .RelPermalink }}" class="btn btn-primary">{{ .LinkTitle }}</a>
+            </div>
+          </div>
+        {{- end }}
+      </div>
+    </section>
+  </article>
+{{- end }}

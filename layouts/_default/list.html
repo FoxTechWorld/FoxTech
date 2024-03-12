@@ -1,0 +1,19 @@
+{{ define "main" }}
+  <div class="container my-5">
+    {{ range .Paginator.Pages }}
+      <div class="card mb-4">
+        <div class="card-body">
+          <h2 class="card-title"><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></h2>
+          {{ with .Params.thumbnail }}
+            <img src="{{ .Params.thumbnail }}" alt="{{ .Title }}" class="card-img-top">
+          {{ end }}
+          <p class="card-text">{{ .Summary }}</p>
+        </div>
+        <div class="card-footer text-muted">
+          <time>{{ .Date.Format "January 2, 2006" }}</time>
+        </div>
+      </div>
+    {{ end }}
+    {{ template "_internal/pagination.html" . }}
+  </div>
+{{ end }}

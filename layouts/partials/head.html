@@ -1,0 +1,26 @@
+<head>
+    <title>{{ .Title }}</title>
+    
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="author" content="{{ .Site.Params.Author.Name }}" />
+    <meta name="description" content="{{ if .IsHome }}{{ .Site.Params.description | truncate 160 }}{{ else }}{{ .Description | truncate 160 }}{{ end }}"/>
+    <meta name="keywords" content="{{ if .IsPage }}{{ range union .Site.Params.keywords .Params.tags }}{{ . }}, {{ end }}{{ else }}{{ range .Site.Params.keywords }}{{ . }}, {{ end }}{{ end }}">
+    <meta name="robots" content="index, follow" />
+
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:site" content="{{ .Site.Params.Author.Twitter }}"/>
+    <meta name="twitter:title" content="{{ .Title }}"/>
+    <meta name="twitter:description" content="{{ if .IsHome }}{{ .Site.Params.description | truncate 160 }}{{ else }}{{ .Description | truncate 160 }}{{ end }}"/>
+    <meta name="twitter:image" content="{{ .Params.image }}"/>
+
+    <meta property="og:title" content="{{ .Title }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ .Permalink }}" />
+    <meta property="og:image" content="{{ .Params.image }}" />
+    <meta property="og:description" content="{{ if .IsHome }}{{ .Site.Params.description | truncate 160 }}{{ else }}{{ .Description | truncate 160 }}{{ end }}" />
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+    <link rel="canonical" href="{{ if .IsPage }}{{ .Permalink }}{{ else }}{{ .Site.BaseURL }}{{ end }}" />
+    <link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" href="{{ with .OutputFormats.Get "RSS" }}{{ .Permalink }}{{ end }}"/>
+</head>
