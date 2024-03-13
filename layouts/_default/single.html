@@ -13,6 +13,11 @@
         {{ template "_internal/disqus.html" . }}
       </section>
       {{ end }}
+
+      {{ if (.Params.mermaid) }}
+    		{{ partial "mermaid.html" }}
+    	{{ end }}
+
       {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
     </div>
   </section>

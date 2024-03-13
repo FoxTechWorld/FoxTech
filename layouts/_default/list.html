@@ -1,19 +1,20 @@
 {{ define "main" }}
-  <div class="container my-5">
+  <main class="container my-5">
     {{ range .Paginator.Pages }}
-      <div class="card mb-4">
-        <div class="card-body">
-          <h2 class="card-title"><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></h2>
-          {{ with .Params.thumbnail }}
-            <img src="{{ .Params.thumbnail }}" alt="{{ .Title }}" class="card-img-top">
-          {{ end }}
-          <p class="card-text">{{ .Summary }}</p>
-        </div>
-        <div class="card-footer text-muted">
-          <time>{{ .Date.Format "January 2, 2006" }}</time>
-        </div>
-      </div>
+      <article class="card mb-4 fade-in">
+        <header class="card-body">
+          <h2 class="card-title h3"><a href="{{ .Permalink }}" aria-label="Leia mais sobre {{ .LinkTitle }}">{{ .LinkTitle }}</a></h2>
+          <p>Postado em <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time></p>
+        </header>
+        {{ with .Params.thumbnail }}
+          <img src="{{ . }}" alt="{{ .Title }}" class="card-img-top">
+        {{ end }}
+        <section class="card-text">{{ .Summary }}</section>
+        <footer class="card-footer text-muted">
+          <a href="{{ .Permalink }}" class="btn btn-primary" role="button">Leia mais</a>
+        </footer>
+      </article>
     {{ end }}
     {{ template "_internal/pagination.html" . }}
-  </div>
+  </main>
 {{ end }}

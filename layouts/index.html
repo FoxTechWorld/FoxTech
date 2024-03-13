@@ -3,16 +3,16 @@
     <h1 class="display-4" id="welcome">Bem-vindo ao FoxTechWorld!</h1>
     <p class="lead">Aqui discutimos assuntos de tecnologia, programação, números aleatórios entre outras discussões interessantes. Confira nossos posts mais recentes:</p>
     {{ range first 5 .Paginator.Pages }}
-      <div class="card mb-4 fade-in">
+      <article class="card mb-4 fade-in" role="article">
         <div class="card-body">
-          <h2 class="card-title h3"><a href="{{ "posts" | relURL }}/{{ .Title | urlize }}">{{ .Title }}</a></h2>
+          <h2 class="card-title h3"><a href="{{ "posts" | relURL }}/{{ .Title | urlize }}" aria-label="Leia mais sobre {{ .Title }}">{{ .Title }}</a></h2>
           <p class="card-text">{{ .Summary }}</p>
           <a href="{{ "posts" | relURL }}/{{ .Title | urlize }}" class="btn btn-primary" role="button">Leia mais</a>
         </div>
         <div class="card-footer text-muted">
           Postado em <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
         </div>
-      </div>
+      </article>
     {{ end }}
     <a href="{{ "posts" | relURL }}" class="btn btn-primary" role="button">Ver todos os posts →</a>
   </div>
