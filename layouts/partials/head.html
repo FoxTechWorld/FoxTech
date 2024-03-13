@@ -6,6 +6,7 @@
     <meta name="author" content="{{ .Site.Params.Author.Name }}" />
     <meta name="description" content="{{ if .IsHome }}{{ .Site.Params.description | truncate 160 }}{{ else }}{{ .Description | truncate 160 }}{{ end }}"/>
     <meta name="keywords" content="{{ if .IsPage }}{{ range union .Site.Params.keywords .Params.tags }}{{ . }}, {{ end }}{{ else }}{{ range .Site.Params.keywords }}{{ . }}, {{ end }}{{ end }}">
+    <meta name="google-site-verification" content="XXEJNvdhFFbUcmcEG1i9z2AaaEEKwZqE_qsFGO3ymWw" />
     <meta name="robots" content="index, follow" />
 
     <meta name="twitter:card" content="summary"/>
