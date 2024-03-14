@@ -28,8 +28,11 @@
         :root,body{font-size:18px!important}.card,article{background-color:#333!important;color:#f0f0f0!important}.card,.card-footer,article,body{color:#f0f0f0!important}.container,article{padding:15px!important}.card a,a,article h2 a{color:#9cf!important}:root{margin:auto!important;line-height:1.6!important;padding:0 10px!important}body{font-family:Arial,Helvetica,sans-serif!important;background-color:#111!important}h1,h2,h3{line-height:1.2!important}img{max-width:100%!important;height:auto!important}a{text-decoration:underline!important}a:hover{color:#455874!important}.card-footer{background-color:#222!important}.btn,.card button,a.btn{background-color:#007bff!important}.card button,a.btn{color:#fff!important}@media (max-width:768px){body{font-size:14px!important}.card{margin-bottom:20px!important}}.container{max-width:960px!important;margin:auto!important}article{margin-bottom:20px!important;border-radius:5px!important}article h2{margin-bottom:10px!important;font-size:24px!important}article h2 a{text-decoration:none!important}.navbar-brand:hover,.navbar-nav .nav-link:hover,article h2 a:hover{color:#fdfdfd!important}.btn,.btn:hover{color:#212529!important}article p{font-size:16px!important}.btn{display:inline-block!important;font-weight:400!important;text-align:center!important;vertical-align:middle!important;cursor:pointer!important;border:1px solid transparent!important;padding:.375rem .75rem!important;font-size:1rem!important;line-height:1.5!important;border-radius:.25rem!important;transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out!important}.btn:hover{background-color:#0056b3!important}.comments,.terms{margin-top:20px!important}.navbar{background-color:#333!important}.navbar-brand,.navbar-nav .nav-link{color:#f0f0f0!important}.navbar-toggler{border-color:#f0f0f0!important}.navbar-toggler-icon{background-image:url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(240, 240, 240, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E")!important}
     </style>
     
+    {{- with .OutputFormats.Get "rss" }}
+	    {{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
+	{{- end }}
 
-    {{- if not .Site.IsServer }}
+    {{- if not hugo.IsServer }}
     {{- if hasPrefix .Site.GoogleAnalytics "G-" }}
       {{ template "_internal/google_analytics.html" . }}
     {{- else }}
