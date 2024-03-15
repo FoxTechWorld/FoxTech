@@ -9,7 +9,7 @@
         {{ with .Params.thumbnail }}
           <img src="{{ . }}" alt="{{ .Title }}" class="card-img-top">
         {{ end }}
-        <section class="card-text">{{ .Summary }}</section>
+        <section class="card-text">{{ .Description }}</section>
         <footer class="card-footer text-muted">
           <a href="{{ .Permalink }}" class="btn btn-primary" role="button">Leia mais</a>
         </footer>
