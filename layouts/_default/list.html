@@ -1,9 +1,9 @@
 {{ define "main" }}
   <main class="container my-5">
     {{ range .Paginator.Pages }}
-      <article class="card mb-4 fade-in">
+      <article class="card fade-in">
         <header class="card-body">
-          <h2 class="card-title h3"><a href="{{ .Permalink }}" aria-label="Leia mais sobre {{ .LinkTitle }}">{{ .LinkTitle }}</a></h2>
+          <h2 class="card-title"><a href="{{ .Permalink }}" aria-label="Leia mais sobre {{ .LinkTitle }}">{{ .LinkTitle }}</a></h2>
           <p>Postado em <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time></p>
         </header>
         {{ with .Params.thumbnail }}

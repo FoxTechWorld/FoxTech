@@ -3,15 +3,15 @@
 
 {{- with $page.GetTerms $taxonomy }}
   {{- $label := (index . 0).Parent.LinkTitle }}
-  <article class="card my-4">
+  <article class="card">
     <header class="card-header">
       <h5>{{ $label }}:</h5>
     </header>
     <section class="card-body">
       <div class="row">
         {{- range . }}
-          <div class="col-12 col-sm-6 col-md-4">
-            <div class="card mb-4">
+          <div>
+            <div class="card">
               <a href="{{ .RelPermalink }}" class="btn btn-primary">{{ .LinkTitle }}</a>
             </div>
           </div>

@@ -1,7 +1,7 @@
 ---
 title: '{{ replace .File.ContentBaseName "-" " " | title }}'
 date: {{ .Date }}
-author: "KitsuneSemCalda"
+draft: false
 description: ""
 image: ""
 
@@ -15,6 +15,8 @@ comments: true
 authorbox: true
 mathjax: true
 tags: []
+
+author: "KitsuneSemCalda"
 
 sitemap:
   changefreq: 'weekly'

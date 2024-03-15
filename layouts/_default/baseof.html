@@ -3,9 +3,10 @@
 
 {{ partial "head.html" . }}
 
-<body class="d-flex flex-column min-vh-100 bg-dark" style="height: 100vh;">  {{ partial "header.html" . }}
+<body class="bg-dark">  
+  {{ partial "header.html" . }}
   
-  <main class="container py-5" style="flex: 1 0 auto; height: 100vh">
+  <main class="container">
     {{ block "main" . }}{{ end }} 
   </main>
   

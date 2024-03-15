@@ -1,13 +1,13 @@
 {{ define "main" }}
-  <section class="container my-5">
-    <h1 class="display-4">{{ .Title }}</h1>
+  <section>
+    <h1>{{ .Title }}</h1>
 
     {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
     {{ $dateHuman := .Date | time.Format ":date_long" }}
     <time datetime="{{ $dateMachine }}" class="text-decoration-none">{{ $dateHuman }}</time>
 
     {{ .Content }}
-    <div class="mt-4">
+    <div>
       {{ if and (.Site.Config.Services.Disqus.Shortname) (.Param "comments") (not .Site.IsServer) }}
       <section class="comments block">
         {{ template "_internal/disqus.html" . }}
